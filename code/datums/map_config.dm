@@ -9,7 +9,7 @@
     var/map_path = "map_files/jademansion"
     var/map_file = "jademansion.dmm"
     var/adminzone = "jadeadmin.dmm"
-
+    var/amountzlevels = 2
     var/minetype = "lavaland"
 
     var/list/transition_config = list(MAIN_STATION = CROSSLINKED,
@@ -67,6 +67,11 @@
     map_file = json["map_file"]
     adminzone = json["adminzone"]
     minetype = json["minetype"]
+    amountzlevels = json["amountzlevels"]
+    amountzlevels = text2num(amountzlevels)
+    GLOB.JADE_MAX_MAP_Z_LEVEL = amountzlevels
+    var/adminzlevel = amountzlevels + 1
+    GLOB.JADE_ADMIN_Z_LEVEL = adminzlevel
 
     var/list/jtcl = json["transition_config"]
 
@@ -86,6 +91,7 @@
     CHECK_EXISTS("minetype")
     CHECK_EXISTS("transition_config")
     CHECK_EXISTS("adminzone")
+    CHECK_EXISTS("amountzlevels")
 
     var/path = GetFullMapPath(json["map_path"], json["map_file"])
     if(!fexists(path))
@@ -142,6 +148,9 @@
     return "_maps/[mp]/[mf]"
 /datum/map_config/proc/GetAdminPath(mp = map_path, mf = adminzone)
 	return "_maps/[mp]/[mf]"
+/datum/map_config/proc/getzlevelamount(zmap = amountzlevels)
+	return zmap
+
 
 /datum/map_config/proc/MakeNextMap()
     return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
