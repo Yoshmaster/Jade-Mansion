@@ -6,6 +6,7 @@
 	var/bloodiness = 0 //0-100, amount of blood in this decal, used for making footprints and affecting the alpha of bloody footprints
 	var/mergeable_decal = 1 //when two of these are on a same tile or do we need to merge them into just one?
 
+
 /obj/effect/decal/cleanable/Initialize(mapload)
 	if (random_icon_states && length(src.random_icon_states) > 0)
 		src.icon_state = pick(src.random_icon_states)
@@ -89,3 +90,24 @@
 		return bloodiness
 	else
 		return 0
+
+/obj/effect/decal/cleanable/proc/try_clean(clean_ingredients[])
+
+	for(var/check in try_clean.["failure"]
+		if(check in clean_ingredients[])
+			return "failure"
+
+	for(var/check in try_clean.["forbidden"]
+		if(check in clean_ingredients[])
+			return "forbidden"
+
+	for(var/check in try_clean.["required"])
+		if(!(check in clean_ingredients[]))
+			return "no pass"
+
+
+	for(try_clean.["any"] in try_clean[])
+		for(var/check in try_clean.["any"])
+			if(!(check in clean_ingredients[]))
+				return "no pass"
+	return "pass"
