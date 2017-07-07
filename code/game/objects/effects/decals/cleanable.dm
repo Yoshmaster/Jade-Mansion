@@ -91,23 +91,50 @@
 	else
 		return 0
 
+
+/var/ingredients_behavior = list()
+
+/var/messes = list()
+
+
+/obj/effect/decal/cleanable/proc/fail_clean(clean_ingredients[])
+
+	for(var/check in ingredients_behavior.["failure"])
+		if(check in clean_ingredients)
+			new messes.[check](src.loc)
+	qdel(src)
+
+/obj/effect/decal/cleanable/proc/forbidden_clean(clean_ingredients[])
+
+	for(var/check in ingredients_behavior.["forbidden"])
+		if(check in clean_ingredients)
+			new messes.[check](src.loc)
+
+
 /obj/effect/decal/cleanable/proc/try_clean(clean_ingredients[])
 
-	for(var/check in try_clean.["failure"]
+	for(var/check in ingredients_behavior.["failure"])
 		if(check in clean_ingredients[])
-			return "failure"
+			fail_clean(clean_ingredients[])
+			return
 
-	for(var/check in try_clean.["forbidden"]
+	for(var/check in ingredients_behavior.["forbidden"])
 		if(check in clean_ingredients[])
-			return "forbidden"
+			forbidden_clean(clean_ingredients[])
+			return
 
-	for(var/check in try_clean.["required"])
+	for(var/check in ingredients_behavior.["required"])
 		if(!(check in clean_ingredients[]))
-			return "no pass"
+			return
 
 
-	for(try_clean.["any"] in try_clean[])
-		for(var/check in try_clean.["any"])
+	for(ingredients_behavior.["any"] in ingredients_behavior[])
+		for(var/check in ingredients_behavior.["any"])
 			if(!(check in clean_ingredients[]))
-				return "no pass"
-	return "pass"
+				return
+	qdel(src)
+
+
+
+
+
