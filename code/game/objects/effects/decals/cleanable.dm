@@ -108,7 +108,9 @@
 
 	for(var/check in ingredients_behavior.["forbidden"])
 		if(check in clean_ingredients)
-			new messes.[check](src.loc)
+			var/around[] = circleview(1,src.loc)
+			for(var/i in range(2))
+				new messes.[check](pick(around))
 
 
 /obj/effect/decal/cleanable/proc/try_clean(clean_ingredients[])
