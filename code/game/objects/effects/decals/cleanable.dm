@@ -99,42 +99,43 @@
 
 /obj/effect/decal/cleanable/proc/fail_clean(clean_ingredients[])
 
-	for(var/check in ingredients_behavior.["failure"])
+	for(var/check in ingredients_behavior["failure"])
 		if(check in clean_ingredients)
-			new messes.[check](src.loc)
+			var/obj/effect/decal/cleanable/mess = messes[check]
+			new mess(src.loc)
 	qdel(src)
 
 /obj/effect/decal/cleanable/proc/forbidden_clean(clean_ingredients[])
 
-	for(var/check in ingredients_behavior.["forbidden"])
+	for(var/check in ingredients_behavior["forbidden"])
 		if(check in clean_ingredients)
 			var/around[] = circleview(1,src.loc)
-			for(var/turf/open/test in around)
-				if(test.z_open || test.density)
-					around.remove(test)
+			for(var/turf/open/squish in around)
+				if(squish.z_open || squish.density)
+					around.Remove(squish)
 			for(var/i=0 to 2)
-				new messes.[check](pick(around))
+				new messes[check](pick(around))
 
 
 /obj/effect/decal/cleanable/proc/try_clean(clean_ingredients[])
 
-	for(var/check in ingredients_behavior.["failure"])
+	for(var/check in ingredients_behavior["failure"])
 		if(check in clean_ingredients[])
 			fail_clean(clean_ingredients[])
 			return
 
-	for(var/check in ingredients_behavior.["forbidden"])
+	for(var/check in ingredients_behavior["forbidden"])
 		if(check in clean_ingredients[])
 			forbidden_clean(clean_ingredients[])
 			return
 
-	for(var/check in ingredients_behavior.["required"])
+	for(var/check in ingredients_behavior["required"])
 		if(!(check in clean_ingredients[]))
 			return
 
 
-	for(ingredients_behavior.["any"] in ingredients_behavior[])
-		for(var/check in ingredients_behavior.["any"])
+	for(ingredients_behavior["any"] in ingredients_behavior[])
+		for(var/check in ingredients_behavior["any"])
 			if(!(check in clean_ingredients[]))
 				return
 	qdel(src)
