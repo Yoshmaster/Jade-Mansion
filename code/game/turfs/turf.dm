@@ -3,13 +3,14 @@
 	level = 1
 
 	var/intact = 1
-	var/turf/baseturf = /turf/open/outside
+	var/turf/baseturf = /turf/open/outside/sand
 
 	var/temperature = T20C
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 
 	var/blocks_air = 0
+	var/z_open = 0
 
 	flags = CAN_BE_DIRTY
 
@@ -343,7 +344,7 @@
 	return 1
 
 /turf/proc/can_lay_cable()
-	return can_have_cabling() & !intact
+	return can_have_cabling()
 
 /turf/proc/visibilityChanged()
 	if(SSticker)

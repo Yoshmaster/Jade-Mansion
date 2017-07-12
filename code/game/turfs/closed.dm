@@ -5,6 +5,9 @@
 	density = 1
 	blocks_air = 1
 
+/turf/closed/can_have_cabling()
+	return 0
+
 /turf/closed/indestructible
 	name = "wall"
 	icon = 'icons/turf/walls.dmi'
@@ -28,7 +31,7 @@
 
 
 /turf/closed/indestructible/splashscreen
-	name = "Space Station 13"
+	name = "Maid Mansion"
 	icon = 'config/title_screens/images/blank.png'
 	icon_state = ""
 	layer = FLY_LAYER

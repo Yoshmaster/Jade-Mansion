@@ -41,6 +41,20 @@
 		//Stuff jammed in your limbs hurts
 		handle_embedded_objects()
 
+
+	if(stat != DEAD)
+		//stats handling
+		handle_mental_breaks()
+	if(stat != DEAD)
+		//stats handling
+		handle_traits()
+	if(stat != DEAD)
+		//mood handling
+		handle_mood()
+	if(stat != DEAD)
+		//handling knockout
+		handle_knockout()
+
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
@@ -55,6 +69,19 @@
 		return ONE_ATMOSPHERE
 	else
 		return pressure
+
+
+/mob/living/carbon/human/proc/handle_knockout()
+	if(health < HEALTH_THRESHOLD_HEAL)
+		heal_bodypart_damage(5,5, 0)
+		adjustBruteLoss(-5, 0)
+		adjustFireLoss(-5, 0)
+		adjustOxyLoss(-5, 0)
+		adjustToxLoss(-5, 0)
+
+
+
+
 
 
 /mob/living/carbon/human/handle_disabilities()
@@ -98,9 +125,7 @@
 	var/L = getorganslot("lungs")
 
 	if(!L)
-		if(health >= HEALTH_THRESHOLD_CRIT)
-			adjustOxyLoss(HUMAN_MAX_OXYLOSS + 1)
-		else if(!(NOCRITDAMAGE in dna.species.species_traits))
+		if(!(NOCRITDAMAGE in dna.species.species_traits))
 			adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
 
 		failed_last_breath = 1
@@ -431,11 +456,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		if(drunkenness >= 91)
 			adjustBrainLoss(0.4)
 			if(prob(20) && !stat)
-				if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && z == ZLEVEL_STATION) //QoL mainly
-					to_chat(src, "<span class='warning'>You're so tired... but you can't miss that shuttle...</span>")
-				else
-					to_chat(src, "<span class='warning'>Just a quick nap...</span>")
-					Sleeping(45)
+				to_chat(src, "<span class='warning'>Just a quick nap...</span>")
+				Sleeping(45)
 
 		if(drunkenness >= 101)
 			adjustToxLoss(4) //Let's be honest you shouldn't be alive by now

@@ -19,6 +19,8 @@
 	new /obj/item/weapon/storage/firstaid/fire(src)
 	new /obj/item/weapon/storage/firstaid/toxin(src)
 	new /obj/item/weapon/storage/firstaid/regular(src)
+	new /obj/item/weapon/storage/box/beakers(src)
+	new /obj/item/weapon/storage/box/beakers(src)
 
 
 /obj/structure/closet/jademansion/medicalclothes/PopulateContents()
@@ -54,8 +56,12 @@
 	new /obj/item/weapon/soap(src)
 	new /obj/item/weapon/soap(src)
 	new /obj/item/weapon/mop(src)
+	new /obj/item/weapon/feather_duster(src)
+	new /obj/item/weapon/feather_duster(src)
+	new /obj/item/weapon/feather_duster(src)
 	new /obj/item/weapon/storage/bag/trash(src)
 	new /obj/item/weapon/storage/bag/trash(src)
+	new /obj/item/weapon/storage/box/beakers(src)
 
 
 /obj/structure/closet/jademansion/garden/PopulateContents()
@@ -71,6 +77,10 @@
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/storage/box/disks_plantgene(src)
 	new /obj/item/weapon/storage/box/disks_plantgene(src)
+	new /obj/item/weapon/reagent_containers/glass/bucket(src)
+	new /obj/item/weapon/reagent_containers/glass/bucket(src)
+	new /obj/item/weapon/reagent_containers/glass/bucket(src)
+
 
 
 
@@ -107,6 +117,7 @@
 	new /obj/item/weapon/storage/box/ingredients/wildcard(src)
 
 
+
 /obj/structure/closet/jademansion/kitchensupplies/PopulateContents()
 	new /obj/item/weapon/kitchen/knife(src)
 	new /obj/item/weapon/kitchen/knife(src)
@@ -115,6 +126,20 @@
 	new /obj/item/weapon/kitchen/fork(src)
 	new /obj/item/weapon/kitchen/fork(src)
 	new /obj/item/weapon/kitchen/fork(src)
+	new /obj/item/weapon/reagent_containers/glass/bowl(src)
+	new /obj/item/weapon/reagent_containers/glass/bowl(src)
+	new /obj/item/weapon/reagent_containers/glass/bowl(src)
+	new /obj/item/weapon/reagent_containers/glass/bowl(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/bag/tray(src)
+	new /obj/item/weapon/storage/box/beakers(src)
+
 
 
 /obj/structure/closet/jademansion/bar/PopulateContents()
@@ -134,6 +159,9 @@
 	new /obj/item/clothing/under/casualskirtred(src)
 	new /obj/item/clothing/under/whitedress1(src)
 	new /obj/item/clothing/under/whitedress2(src)
+	new /obj/item/clothing/gloves/long_gloves2(src)
+	new /obj/item/clothing/under/blackdress1(src)
+	new /obj/item/clothing/gloves/long_gloves1(src)
 	new /obj/item/clothing/under/bluedress1(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup(src)
@@ -143,7 +171,18 @@
 
 
 /obj/structure/closet/jademansion/casualdresses2
-/obj/structure/closet/jademansion/casualsuits1
+/obj/structure/closet/jademansion/casualsuits1/PopulateContents()
+	new /obj/item/clothing/under/suit1(src)
+	new /obj/item/clothing/under/suit2(src)
+	new /obj/item/clothing/under/suit3(src)
+	new /obj/item/clothing/under/jadesuits/fancysuit1(src)
+	new /obj/item/clothing/under/jadesuits/casual1(src)
+	new /obj/item/clothing/under/jadesuits/casual2(src)
+
+
+
+
+
 /obj/structure/closet/jademansion/casualsuits2
 /obj/structure/closet/jademansion/casualgeneric1
 
@@ -153,8 +192,16 @@
 	new /obj/item/clothing/under/maidblack3(src)
 	new /obj/item/clothing/under/maidblack4(src)
 	new /obj/item/clothing/under/maidblack5(src)
+	new /obj/item/clothing/under/maidblack6(src)
+	new /obj/item/clothing/under/maidblack7(src)
 	new /obj/item/clothing/under/maidblue1(src)
 	new /obj/item/clothing/under/maidblue2(src)
+	new /obj/item/clothing/under/maidbase(src)
+	new /obj/item/clothing/under/furisodeblack(src)
+	new /obj/item/clothing/under/kappougi1(src)
+	new /obj/item/clothing/under/kappougi2(src)
+	new /obj/item/clothing/under/maidkimono1(src)
+
 	new /obj/item/clothing/head/maidhead1(src)
 	new /obj/item/clothing/head/maidhead1(src)
 	new /obj/item/clothing/head/maidhead1(src)

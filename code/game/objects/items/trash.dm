@@ -4,6 +4,7 @@
 	desc = "This is rubbish."
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
+	messy_thing = 1
 
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
@@ -64,6 +65,7 @@
 	name = "crushed can"
 	icon_state = "cola"
 	resistance_flags = 0
+
 
 /obj/item/trash/attack(mob/M, mob/living/user)
 	return

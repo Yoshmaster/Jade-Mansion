@@ -97,10 +97,11 @@
 		return
 	isSwitchingStates = 1
 	playsound(loc, openSound, 100, 1)
+	set_opacity(0)
+
 	flick("[initial_state]opening",src)
 	sleep(10)
 	density = 0
-	opacity = 0
 	state = 1
 	air_update_turf(1)
 	update_icon()
@@ -134,11 +135,11 @@
 	for(var/mob/living/L in T)
 		return
 	isSwitchingStates = 1
-	playsound(loc, closeSound, 100, 1)
 	flick("[initial_state]closing",src)
 	sleep(10)
+	playsound(loc, closeSound, 100, 1)
 	density = 1
-	opacity = 1
+	set_opacity(1)
 	state = 0
 	air_update_turf(1)
 	update_icon()
@@ -261,8 +262,8 @@
 /obj/structure/mineral_door/wood
 	name = "wood door"
 	icon_state = "wood"
-	openSound = 'sound/effects/doorcreaky.ogg'
-	closeSound = 'sound/effects/doorcreaky.ogg'
+	openSound = 'sound/machines/door_open.ogg'
+	closeSound = 'sound/machines/door_close.ogg'
 	sheetType = /obj/item/stack/sheet/mineral/wood
 	resistance_flags = FLAMMABLE
 	obj_integrity = 200
@@ -272,6 +273,9 @@
 	haslock = 1
 	autoclose = 1
 	name = "general access door"
+
+/obj/structure/mineral_door/wood/lock/paper
+	icon_state = "paperframe"
 
 /obj/structure/mineral_door/wood/lock/whitewood
 	icon_state = "silver"
@@ -296,3 +300,9 @@
 	name = "owner access wood door"
 	doorkeyid = "owner"
 	doorlockdifficulty  = 90
+
+/obj/structure/mineral_door/wood/lock/owner/locked
+	name = "owner access wood door"
+	doorkeyid = "owner"
+	doorlockdifficulty  = 90
+	doorlocked = 1

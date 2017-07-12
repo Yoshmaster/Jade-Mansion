@@ -89,7 +89,6 @@
 
 	immunity_type = "ash"
 
-	probability = 90
 
 /datum/weather/ash_storm/impact(mob/living/L)
 	if(istype(L.loc, /obj/mecha))
@@ -113,7 +112,6 @@
 
 	aesthetic = TRUE
 
-	probability = 10
 
 /datum/weather/rad_storm
 	name = "radiation storm"
@@ -241,4 +239,29 @@
 	target_z = ZLEVEL_ALL
 
 /datum/weather/acid_rain/impact(mob/living/L)
+	L.fire_stacks = -2
+
+/datum/weather/verylongrain
+	name = "long rain"
+	desc = "A gentle rain."
+
+	telegraph_duration = 100
+	telegraph_message = "<span class='danger'>A handful of droplets fall from the sky. Looks like rain..</span>"
+	telegraph_sound = 'sound/ambience/acidrain_start.ogg'
+
+	weather_message = "<span class='userdanger'><i>It starts to pour!</i></span>"
+	weather_overlay = "light_rain"
+	weather_duration_lower = 30000000
+	weather_duration_upper = 60000000
+	weather_sound = 'sound/ambience/acidrain_mid.ogg'
+
+	end_duration = 100
+	end_message = "<span class='notice'>The clouds begin to part. Looks like the rain is letting up.</span>"
+	end_sound = 'sound/ambience/acidrain_end.ogg'
+
+	area_type = /area/outside
+	target_z = ZLEVEL_ALL
+
+/datum/weather/acid_rain/impact(mob/living/L)
 	L.fire_stacks = -20
+

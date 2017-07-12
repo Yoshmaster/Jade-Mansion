@@ -125,98 +125,201 @@
 
 	var/jobtype = null
 
-	uniform = /obj/item/clothing/under/color/grey
+	uniform = null
 	id = /obj/item/weapon/card/id
-	ears = /obj/item/device/radio/headset
-	belt = /obj/item/device/pda
+	ears = null
+	belt = null
 	back = /obj/item/weapon/storage/backpack
-	shoes = /obj/item/clothing/shoes/sneakers/black
+	shoes = null
 
 	var/list/implants = null
 
 	var/backpack = /obj/item/weapon/storage/backpack
 	var/satchel  = /obj/item/weapon/storage/backpack/satchel
 	var/dufflebag = /obj/item/weapon/storage/backpack/dufflebag
-	var/box = /obj/item/weapon/storage/box/survival
+	var/box = null
 
 	var/pda_slot = slot_belt
 
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	switch(H.backbag)
+	/*switch(H.backbag)
 		if(GBACKPACK)
-			back = /obj/item/weapon/storage/backpack //Grey backpack
+			back = null //Grey backpack
 		if(GSATCHEL)
-			back = /obj/item/weapon/storage/backpack/satchel //Grey satchel
+			back = null //Grey satchel
 		if(GDUFFLEBAG)
-			back = /obj/item/weapon/storage/backpack/dufflebag //Grey Dufflebag
+			back = null //Grey Dufflebag
 		if(LSATCHEL)
-			back = /obj/item/weapon/storage/backpack/satchel/leather //Leather Satchel
+			back = null //Leather Satchel
 		if(DSATCHEL)
-			back = satchel //Department satchel
+			back = null //Department satchel
 		if(DDUFFLEBAG)
-			back = dufflebag //Department dufflebag
-		else
-			back = backpack //Department backpack
+			back = null //Department dufflebag
+		else */
+	back = /obj/item/weapon/storage/backpack/satchel //everyone gets a tiny satchel
 
 	if(box)
 		backpack_contents.Insert(1, box) // Box always takes a first slot in backpack
 		backpack_contents[box] = 1
 
 	switch(H.workuniform)
+		if(BLACKMAID0)
+			uniform = /obj/item/clothing/under/maidbase
+			head = /obj/item/clothing/head/maidhead1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
 		if(BLACKMAID1)
 			uniform = /obj/item/clothing/under/maidblack1
 			head = /obj/item/clothing/head/maidhead1
 			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
 
 		if(BLACKMAID2)
 			uniform = /obj/item/clothing/under/maidblack2
 			head = /obj/item/clothing/head/maidhead1
 			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
 
 		if(BLACKMAID3)
 			uniform = /obj/item/clothing/under/maidblack3
 			head = /obj/item/clothing/head/maidhead2
 			shoes = /obj/item/clothing/shoes/laceup
+			gloves = null
 
 		if(BLACKMAID4)
 			uniform = /obj/item/clothing/under/maidblack4
 			head = /obj/item/clothing/head/maidhead1
 			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
 
 		if(BLACKMAID5)
 			uniform = /obj/item/clothing/under/maidblack5
 			head = /obj/item/clothing/head/maidhead1
 			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(BLACKMAID6)
+			uniform = /obj/item/clothing/under/maidblack6
+			head = /obj/item/clothing/head/maidhead1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(BLACKMAID7)
+			uniform = /obj/item/clothing/under/maidblack7
+			head = /obj/item/clothing/head/maidhead1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
 
 		if(BLUEMAID1)
 			uniform = /obj/item/clothing/under/maidblue1
 			head = /obj/item/clothing/head/maidhead2
-			shoes = /obj/item/clothing/shoes/laceup
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
 		if(BLUEMAID2)
 			uniform = /obj/item/clothing/under/maidblue2
 			head = /obj/item/clothing/head/maidhead1
-			shoes = /obj/item/clothing/shoes/laceup
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(KAPPOUGI0)
+			uniform = /obj/item/clothing/under/furisodeblack
+			head = /obj/item/clothing/head/maidhead2
+			shoes = /obj/item/clothing/shoes/jackboots //boots and furisode, so cool!!
+			gloves = null
+
+		if(KAPPOUGI1)
+			uniform = /obj/item/clothing/under/kappougi1
+			head = /obj/item/clothing/head/maidhead2
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(KAPPOUGI2)
+			uniform = /obj/item/clothing/under/kappougi2
+			head = /obj/item/clothing/head/maidhead1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(KIMONOMAID1)
+			uniform = /obj/item/clothing/under/maidkimono1
+			head = /obj/item/clothing/head/maidhead1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = null
+
+		if(CHEMISTMAID1)
+			uniform = /obj/item/clothing/under/nurse1
+			head = /obj/item/clothing/head/maidhead2
+			gloves = /obj/item/clothing/gloves/color/latex/nitrile
+			shoes = /obj/item/clothing/shoes/jackboots
+
 
 		if(BUTLER1)
 			uniform = /obj/item/clothing/under/suit1
 			shoes = /obj/item/clothing/shoes/laceup
+			head = null
+			gloves = null
+
 
 		if(BUTLER2)
 			uniform = /obj/item/clothing/under/suit2
 			shoes = /obj/item/clothing/shoes/laceup
+			head = null
+			gloves = null
+
 
 		if(BUTLER3)
 			uniform = /obj/item/clothing/under/suit3
 			shoes = /obj/item/clothing/shoes/laceup
+			head = null
+			gloves = null
 
-		if(CASUALDRESS1)
+
+		if(OWNERDRESS1)
 			uniform = /obj/item/clothing/under/casualskirtblue
 			shoes = /obj/item/clothing/shoes/jackboots
+			head = null
+			gloves = null
+
+
+		if(OWNERDRESS2)
+			uniform = /obj/item/clothing/under/blackdress1
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = /obj/item/clothing/gloves/long_gloves1
+			head = null
+
+		if(OWNERDRESS3)
+			uniform = /obj/item/clothing/under/whitedress2
+			shoes = /obj/item/clothing/shoes/jackboots
+			gloves = /obj/item/clothing/gloves/long_gloves2
+			head = null
+
+		if(CASUALSUIT1)
+			uniform = /obj/item/clothing/under/jadesuits/fancysuit1
+			shoes = /obj/item/clothing/shoes/laceup
+			head = null
+			gloves = null
+
+
+		if(CASUALSUIT2)
+			uniform = /obj/item/clothing/under/jadesuits/casual1
+			shoes = /obj/item/clothing/shoes/jackboots
+			head = null
+			gloves = null
+
+
+		if(CASUALSUIT3)
+			uniform = /obj/item/clothing/under/jadesuits/casual2
+			shoes = /obj/item/clothing/shoes/laceup
+			head = null
+			shoes = null
+
 
 		if(DEFAULTJOBSUIT)
 
 		else
-			uniform = uniform = /obj/item/clothing/under/maidblack2 //PLACEHOLDER
+			uniform = /obj/item/clothing/under/maidblack2 //PLACEHOLDER
 
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

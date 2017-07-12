@@ -199,8 +199,10 @@ SUBSYSTEM_DEF(ticker)
 
 	transfer_characters()	//transfer keys to the new mobs
 
+	handle_all_join_traits()
+
 	Master.RoundStart()	//let the party begin...
-	
+
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I
 		cb.InvokeAsync()

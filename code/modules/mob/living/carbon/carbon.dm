@@ -508,8 +508,7 @@
 		total_burn	+= BP.burn_dam
 	health = maxHealth - getOxyLoss() - getToxLoss() - getCloneLoss() - total_burn - total_brute
 	update_stat()
-	if(((maxHealth - total_burn) < HEALTH_THRESHOLD_DEAD) && stat == DEAD )
-		become_husk()
+
 	med_hud_set_health()
 
 /mob/living/carbon/update_sight()
@@ -671,9 +670,6 @@
 	if(status_flags & GODMODE)
 		return
 	if(stat != DEAD)
-		if(health<= HEALTH_THRESHOLD_DEAD || !getorgan(/obj/item/organ/brain))
-			death()
-			return
 		if(paralysis || sleeping || getOxyLoss() > 50 || (status_flags & FAKEDEATH) || health <= HEALTH_THRESHOLD_CRIT)
 			if(stat == CONSCIOUS)
 				stat = UNCONSCIOUS

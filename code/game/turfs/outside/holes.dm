@@ -4,6 +4,7 @@
 	var/initial_icon = "downwards"
 	name = "hole"
 	desc = "Watch your step!"
+	z_open = 1
 	var/drop_x = 1
 	var/drop_y = 1
 	var/drop_z = 1
@@ -74,6 +75,8 @@
 		if(!below.density)
 			new /obj/effect/upstairshine(below)
 
+/turf/open/hole/can_have_cabling()
+	return 0
 
 /turf/open/hole/outside
 	icon_state = "outsidedownwards"
